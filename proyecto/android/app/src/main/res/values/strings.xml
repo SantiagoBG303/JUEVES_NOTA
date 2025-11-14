@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">RICK-MORTY</string>
+    <string name="title_activity_main">RICK-MORTY</string>
+    <string name="package_name">com.santi.app</string>
+    <string name="custom_url_scheme">com.santi.app</string>
+</resources>

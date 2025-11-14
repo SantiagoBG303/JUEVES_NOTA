@@ -1,1 +1,0 @@
-# JUEVES_NOTA

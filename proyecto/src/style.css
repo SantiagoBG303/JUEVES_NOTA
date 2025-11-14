@@ -1,0 +1,251 @@
+/* ===== TIPOGRAFÍA ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== COLORES ===== */
+:root {
+  --fondo: #050a0f;
+  --tarjeta: rgba(13, 20, 28, 0.7);
+  --tarjeta-solida: #0d141c;
+  --borde: #1f2833;
+  --verde-neon: #00ff9d;
+  --portal1: #00ff41;
+  --portal2: #39ff14;
+  --portal3: #b4ff39;
+  --morado: #8e2de2;
+  --azul-neon: #4dd0e1;
+  --texto: #f2f2f2;
+  --texto-suave: #bdbdbd;
+}
+
+/* ================================
+   FONDO PRINCIPAL + PORTAL ANIMADO
+================================= */
+body {
+  background: radial-gradient(circle at center, #001f12, #000814 65%);
+  color: var(--texto);
+  overflow-x: hidden;
+  padding: 20px;
+  position: relative;
+}
+
+/* Portal verde moviéndose */
+body::before {
+  content: "";
+  position: fixed;
+  width: 950px;
+  height: 950px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 0deg,
+    var(--portal1),
+    var(--portal2),
+    var(--portal3),
+    var(--portal1)
+  );
+  filter: blur(120px) brightness(0.5);
+  border-radius: 50%;
+  animation: portalGiro 12s linear infinite;
+  z-index: -2;
+  opacity: 0.40;
+}
+
+@keyframes portalGiro {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Neblina verde */
+body::after {
+  content: "";
+  position: fixed;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  background: radial-gradient(circle, rgba(0,255,80,0.10), transparent 70%);
+  animation: neblina 9s infinite ease-in-out alternate;
+  z-index: -3;
+}
+
+@keyframes neblina {
+  0% { filter: blur(70px); opacity: 0.25; }
+  100% { filter: blur(130px); opacity: 0.4; }
+}
+
+/* ======================
+   MENÚ SUPERIOR
+====================== */
+nav {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+nav button {
+  padding: 10px 20px;
+  background: rgba(0,255,157,0.14);
+  color: var(--verde-neon);
+  border: 1px solid var(--verde-neon);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-shadow: 0 0 8px var(--verde-neon);
+  box-shadow: 0 0 12px rgba(0, 255, 157, 0.35);
+  transition: 0.3s;
+}
+
+nav button:hover {
+  background: var(--verde-neon);
+  color: #000;
+  transform: scale(1.06);
+  box-shadow: 0 0 25px var(--verde-neon);
+}
+
+/* ======================
+   TITULOS — CORREGIDOS
+====================== */
+h2, h3 {
+  margin-bottom: 12px;
+  color: #050505; /* negro suave */
+  font-weight: 800;
+  text-shadow:
+    0 0 5px var(--azul-neon),
+    0 0 10px var(--azul-neon),
+    0 0 14px rgba(0,255,157,0.3);
+  animation: brilloTitulo 3s infinite ease-in-out alternate;
+}
+
+/* Glow animado suave */
+@keyframes brilloTitulo {
+  0% {
+    text-shadow:
+      0 0 4px #4dd0e1,
+      0 0 8px #4dd0e1;
+  }
+  100% {
+    text-shadow:
+      0 0 8px #00ffaa,
+      0 0 16px rgba(0,255,150,0.6);
+  }
+}
+
+/* ======================
+   FORMULARIOS LOGIN/REGISTRO
+====================== */
+input, textarea {
+  width: 330px;
+  padding: 12px;
+  margin: 12px 0;
+  background: var(--tarjeta-solida);
+  border: 1px solid var(--portal1);
+  border-radius: 6px;
+  color: var(--texto);
+  box-shadow: 0 0 10px rgba(0,255,65,0.25);
+}
+
+button {
+  padding: 10px 22px;
+  background: var(--portal1);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #000;
+  transition: 0.2s;
+  box-shadow: 0 0 18px var(--portal1);
+}
+
+button:hover {
+  background: var(--azul-neon);
+  box-shadow: 0 0 25px var(--azul-neon);
+}
+
+/* ======================
+   TARJETAS PERSONAJES
+====================== */
+.personaje-card,
+.app-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: rgba(10,20,30,0.75);
+  border: 1px solid var(--portal1);
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  transition: 0.3s;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 30px rgba(0,255,65,0.25);
+}
+
+.personaje-card:hover,
+.app-card:hover {
+  transform: scale(1.03);
+  border-color: var(--verde-neon);
+  box-shadow: 0 0 45px rgba(0,255,157,0.55);
+}
+
+/* Imagen personajes */
+.personaje-card img,
+.app-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid var(--portal1);
+  box-shadow: 0 0 20px rgba(0,255,65,0.5);
+}
+
+/* ======================
+   JSON DEL ORIGINAL
+====================== */
+pre {
+  background: rgba(13, 20, 28, 0.85);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--portal1);
+  color: var(--portal2);
+  margin-top: 20px;
+  overflow-x: auto;
+  box-shadow: 0 0 25px rgba(0,255,65,0.35);
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (max-width: 768px) {
+  .personaje-card,
+  .app-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px;
+  }
+
+  input {
+    width: 90%;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .personaje-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+}

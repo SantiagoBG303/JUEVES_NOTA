@@ -1,0 +1,16 @@
+{
+  "appId": "com.santi.app",
+  "appName": "RICK-MORTY",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": true,
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "backgroundColor": "#ffffff",
+      "showSpinner": false,
+      "useDarkMode": true
+    }
+  }
+}
